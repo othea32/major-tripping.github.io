@@ -1,20 +1,29 @@
-A travel advisory app.
-this app is able to find local Resturants, hotels and attraction around the world.
-there is a Map on the right which will show the area Resturants in a card which will display an image along with a rating of 3+, 4+ or 4.5+
-when a card is clicked on the map the right side of the app. will scoll to the individual card which will have all the info of the Resturants, Hotel or Attraction.
+MAJOR-TRIPPING 
+Is a travel advisory app. 
+
+This app is able to find local Resturants, hotels and attraction around the world.
+
+There is a Map on the right which will show the area Resturants in a card which will display an image along with a rating of 3+, 4+ or 4.5+
+
+When a card is clicked on the map the right side of the app. will scoll to the individual card which will have all the info of the Resturants, Hotel or Attraction.
   -- Name, Address, Phone #
   -- link to the website if any
   -- the Ratings if any
   -- link to Grubhub or other external sites
   
 Material UI was used for styling the Header, list etc.
-used 2 api's
+
+Used 2 api's
   -- Google Maps API used for the mapping of locations around the world.
   -- Travel Advisory API used to get location of Resturants, Hotels and Attractions.
 
 Future Task:
   -- add a Weather api for the weather in the area
   -- add retail api for the local retail in the area
+
+Personal challanges:
+  -- using Material UI
+  -- adding the right info needed to the api
 
 
 # Getting Started with Create React App
