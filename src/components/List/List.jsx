@@ -4,10 +4,9 @@ import useStyles from './styles'
 import PlaceDetails from '../PlaceDetails/PlaceDetails'
 
 
-const List = ({ places, childClicked, isLoading }) => {
+const List = ({ places, childClicked, isLoading, type,  setType, rating, setRating }) => {
   const classes = useStyles()
-  const [type, setType] = useState('restaurants')
-  const [rating, setRating] = useState('')
+  
   const [elRefs, setElRefs] = useState([])
 
   useEffect(() => {
@@ -30,16 +29,16 @@ const List = ({ places, childClicked, isLoading }) => {
       ) : (
         <>
       <FormControl className={classes.formControl}>
-        <InputLabel>Type</InputLabel>
-        <Select value={type} onChange={(e) => setType(e.target.value)}>
+        <InputLabel id='type'>Type</InputLabel>
+        <Select id='type' value={type} onChange={(e) => setType(e.target.value)}>
           <MenuItem value="restaurants">Restaurants</MenuItem>
           <MenuItem value="hotels">Hotels</MenuItem>
           <MenuItem value="attractions">Attractions</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
-        <InputLabel>Rating</InputLabel>
-        <Select value={rating} onChange={(e) => setRating(e.target.value)}>
+        <InputLabel id='type'>Rating</InputLabel>
+        <Select id='rating' value={rating} onChange={(e) => setRating(e.target.value)}>
           <MenuItem value={0}>All</MenuItem>
           <MenuItem value={3}>3.0 +</MenuItem>
           <MenuItem value={4}>4.0 +</MenuItem>
