@@ -1,9 +1,10 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
-import { Paper, Typography, useMediaQuery } from '@material-ui/core'
-import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
-import Rating from '@material-ui/lab/Rating'
-import useStyles from './styles.js'
+import { Paper, Typography, useMediaQuery } from '@mui/material'
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import Rating from '@mui/material/Rating'
+import mapstyles from '../../mapstyles'
+import useStyles from './MapStyles.js'
 
 
 
@@ -21,15 +22,14 @@ const Map = ({ coordinates, setCoordinates, setBounds, places, setChildClicked})
         center={coordinates}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
-        options={''}
-        onChange={''}
-        onChildClick={(e) => {
-          setCoordinates({lat: e.center.lat, lng: e.center.lng});
+        options={{ disableDefaultUI: true, zoomControl: true, styles: mapstyles }}
+        onChange={(e) => {
+          setCoordinates({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
         }}
         onChildClick={(child) => setChildClicked(child)}
       >
-      {places?.map((place, i) => (
+      { places?.map((place, i) => (
         <div
           className={classes.markerContainer}
           lat={Number(place.latitude)}
@@ -49,7 +49,7 @@ const Map = ({ coordinates, setCoordinates, setBounds, places, setChildClicked})
                   src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
                   alt={place.name}
                 />
-                <Rating size="small" value={Number(place.rating)} readOnly />
+                <Rating name="read-only" size="small" value={Number(place.rating)} readOnly />
                 </Paper>
             )
           }

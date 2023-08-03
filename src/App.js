@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CssBaseline, Grid } from "@material-ui/core";
+import { CssBaseline, Grid } from "@mui/material";
 
 import { getPlacesData } from "./api";
 
@@ -27,12 +27,13 @@ const App = () => {
   useEffect(() => {
     const filteredPlaces = places.filter((place) => Number(place.rating) > rating);
     setFilteredPlaces(filteredPlaces);
-  }, [rating]);
+  }, [rating, places]);
 
 
   useEffect(() => {
     if(bounds.sw && bounds.ne) {
     setIsLoading(true);
+
     getPlacesData(type, bounds.sw, bounds.ne)
     .then((data) => {
       // console.log(data);

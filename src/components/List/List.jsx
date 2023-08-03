@@ -1,26 +1,24 @@
 import React, { useState, useEffect, createRef }from 'react'
-import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core'
-import useStyles from './styles'
+import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
+
 import PlaceDetails from '../PlaceDetails/PlaceDetails'
+import useStyles from './ListStyles'
 
 
 const List = ({ places, childClicked, isLoading, type,  setType, rating, setRating }) => {
-  const classes = useStyles()
-  
   const [elRefs, setElRefs] = useState([])
+  const classes = useStyles()
 
   useEffect(() => {
-    const refs = Array(places?.length).fill().map((_, i) => elRefs[i] || createRef())
-
-
-    setElRefs(refs)
-  }, [childClicked, places])
+    setElRefs((refs) => Array(places.length).fill().map((_, i) => refs[i] || createRef()));
+  }, [places]);
+  
   
   return (
     
     <div className={classes.container}>
       <Typography variant="h4">
-        Restaurants, Hotels & Attractions around you
+        Restaurants, Hotels & Attractions
       </Typography>
       {isLoading ? (
         <div className={classes.loading}>
@@ -29,7 +27,7 @@ const List = ({ places, childClicked, isLoading, type,  setType, rating, setRati
       ) : (
         <>
       <FormControl className={classes.formControl}>
-        <InputLabel id='type'>Type</InputLabel>
+        <InputLabel id='type'></InputLabel>
         <Select id='type' value={type} onChange={(e) => setType(e.target.value)}>
           <MenuItem value="restaurants">Restaurants</MenuItem>
           <MenuItem value="hotels">Hotels</MenuItem>
@@ -37,9 +35,9 @@ const List = ({ places, childClicked, isLoading, type,  setType, rating, setRati
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
-        <InputLabel id='type'>Rating</InputLabel>
+        <InputLabel id='type'></InputLabel>
         <Select id='rating' value={rating} onChange={(e) => setRating(e.target.value)}>
-          <MenuItem value={0}>All</MenuItem>
+          <MenuItem value="">All</MenuItem>
           <MenuItem value={3}>3.0 +</MenuItem>
           <MenuItem value={4}>4.0 +</MenuItem>
           <MenuItem value={5}>4.5 +</MenuItem>          
@@ -47,7 +45,7 @@ const List = ({ places, childClicked, isLoading, type,  setType, rating, setRati
       </FormControl>
       <Grid container spacing={3} className={classes.list}>
         {places?.map((place, i) => (
-          <Grid item key={i} xs={12}>
+          <Grid ref={elRefs[i]} item key={i} xs={12}>
             <PlaceDetails 
               place={place} 
               selected={Number(childClicked) === i}
