@@ -22,7 +22,7 @@ Future Task:
   -- add retail api for the local retail in the area
 
 To be worked on/fixed:
-  -- the search bar doesnt function properly, but you are able to pan and zoom in & out all over the map to other countries.
+  -- the search bar doesn't function properly, but you are able to pan and zoom in & out all over the map to other countries.
 
 Personal challanges:
   -- using Material UI
