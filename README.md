@@ -21,9 +21,13 @@ Future Task:
   -- add a Weather api for the weather in the area
   -- add retail api for the local retail in the area
 
+To be worked on/fixed:
+  -- the search bar doesnt function properly, but you are able to pan and zoom in & out all over the map to other countries.
+
 Personal challanges:
   -- using Material UI
   -- adding the right info needed to the api
+
 
 
 # Getting Started with Create React App
